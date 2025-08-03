@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyfrowy Świat. Mój Świat.</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background-color: #f3f4f6;
+    }
+    header {
+      background-color: #0052A5;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .tile {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+    }
+    .tile h2 {
+      color: #0052A5;
+    }
+    footer {
+      background-color: #e5e7eb;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    .cta {
+      text-align: center;
+      margin: 2rem;
+    }
+    .cta a {
+      background-color: #00ADEF;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .quiz-tile {
+      background-color: #8DC63F;
+      color: white;
+    }
+    .quiz-tile:hover {
+      background-color: #7BB136;
+    }
+    .path-tile {
+      background-color: #F18D05;
+      color: white;
+    }
+    .path-tile:hover {
+      background-color: #d47b00;
+    }
+    .glossary-tile {
+      background-color: #0052A5;
+      color: white;
+    }
+    .glossary-tile:hover {
+      background-color: #003e80;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cyfrowy Świat. Mój Świat.</h1>
+    <p>5 ścieżek, które pomogą Ci bezpiecznie i pewnie korzystać z internetu</p>
+  </header>
+
+  <section class="grid">
+    <div class="tile" onclick="location.href='codzienne-uzycie.html'">
+      <h2>🧰 Codzienne korzystanie z technologii</h2>
+      <p>Smartfon, aplikacje, chmura – jak uprościć codzienność</p>
+    </div>
+    <div class="tile" onclick="location.href='komunikacja.html'">
+      <h2>💬 Komunikacja i relacje online</h2>
+      <p>Pozostań w kontakcie z rodziną i znajomymi</p>
+    </div>
+    <div class="tile" onclick="location.href='informacja.html'">
+      <h2>🔎 Informacja i jej wiarygodność</h2>
+      <p>Dowiedz się, jak rozpoznać prawdę w internecie</p>
+    </div>
+    <div class="tile" onclick="location.href='bezpieczenstwo.html'">
+      <h2>🔐 Bezpieczeństwo i prywatność</h2>
+      <p>Chroń swoje dane i zachowaj kontrolę</p>
+    </div>
+    <div class="tile" onclick="location.href='obywatelstwo.html'">
+      <h2>🏛️ Aktywność obywatelska i edukacja</h2>
+      <p>Załatwiaj sprawy urzędowe i ucz się online</p>
+    </div>
+    <div class="tile quiz-tile" onclick="location.href='quiz.html'">
+      <h2>📝 Quiz samooceny</h2>
+      <p>Sprawdź, jakie masz kompetencje cyfrowe</p>
+    </div>
+    <div class="tile path-tile" onclick="location.href='sciezki.html'">
+      <h2>🧭 Twoje ścieżki rozwoju</h2>
+      <p>Sprawdź, która ścieżka cyfrowa jest dla Ciebie</p>
+    </div>
+    <div class="tile glossary-tile" onclick="location.href='glossary.html'">
+      <h2>📘 Słowniczek</h2>
+      <p>Najważniejsze terminy cyfrowe w prostym języku</p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <p>Nie wiesz, od czego zacząć?</p>
+    <a href="quiz.html">Spróbuj quizu samooceny</a>
+  </div>
+
+  <footer>
+    © 2025 Fundacja Pro Cultura | Projekt „Aktywni Obywatele w Cyfrowym Świecie”
+  </footer>
+</body>
+</html>
