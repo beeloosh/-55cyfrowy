@@ -1,0 +1,76 @@
+
+/* Główna paleta kolorów oparta na stronie Pro-Cultura */
+:root {
+  --granat: #00234B;
+  --granat-ciemny: #001E3C;
+  --niebieski: #0050B3;
+  --niebieski-hover: #003B80;
+  --czerwony-akcent: #D0312D;
+  --szary-tlo: #F4F4F4;
+  --szary-tekst: #2E2E2E;
+  --bialy: #FFFFFF;
+}
+
+/* Ogólny reset i tło strony */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bialy);
+  color: var(--szary-tekst);
+  margin: 0;
+  padding: 0;
+}
+
+/* Nagłówek strony */
+header {
+  background-color: var(--granat);
+  color: var(--bialy);
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Siatka kart (kafelki) */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+/* Pojedynczy kafelek */
+.card {
+  background: var(--bialy);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  width: 260px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--granat);
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-color: var(--niebieski-hover);
+}
+
+/* Kolorowe tła kart */
+.card.red { background-color: #ffe5e5; }
+.card.blue { background-color: #e6f0ff; }
+.card.yellow { background-color: #fff5cc; }
+.card.green { background-color: #e2f7e2; }
+.card.orange { background-color: #ffeacc; }
+.card.gray { background-color: var(--szary-tlo); }
+
+.card h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--czerwony-akcent);
+}
+
+.card p {
+  color: var(--szary-tekst);
+}
