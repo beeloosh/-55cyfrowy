@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Co chcesz umieć?</title>
+    <link rel="stylesheet" href="style-procultura.css">
+    <style>
+        body {{ font-family: sans-serif; padding: 20px; }}
+        h2 {{ color: #003366; }}
+        .card {{ padding: 1em; margin: 1em 0; border-radius: 12px; background-color: #eef2f5; }}
+        .grid {{ display: grid; gap: 1em; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-top: 2em; }}
+        button {{ margin-top: 1em; padding: 10px 20px; font-size: 16px; cursor: pointer; }}
+    </style>
+</head>
+<body>
+
+<h1>Co chcesz umieć?</h1>
+<p>Zaznacz, co Ci się przyda – pokażemy Ci, jak to zrobić!</p>
+
+<div class="card">
+  <h2>Smartfon od podstaw</h2>
+  <label><input type="checkbox"> Włączyć i wyciszyć telefon</label><br>
+  <label><input type="checkbox"> Połączyć się z Wi-Fi i oszczędzać baterię</label><br>
+  <label><input type="checkbox"> Znaleźć coś w internecie – np. rozkład jazdy, przepis</label><br>
+</div>
+
+<div class="card">
+  <h2>Komunikacja i media społecznościowe</h2>
+  <label><input type="checkbox"> Porozmawiać z kimś na kamerce (np. WhatsApp, Zoom)</label><br>
+  <label><input type="checkbox"> Założyć konto na Facebooku lub Instagramie</label><br>
+  <label><input type="checkbox"> Dać lajka lub komentarz pod zdjęciem znajomego</label><br>
+</div>
+
+<div class="card">
+  <h2>Cyberbezpieczeństwo i fake newsy</h2>
+  <label><input type="checkbox"> Rozpoznać fałszywe SMS-y i e-maile (np. „Twoja paczka…”)</label><br>
+  <label><input type="checkbox"> Sprawdzić, czy dana wiadomość to fake news</label><br>
+  <label><input type="checkbox"> Chronić swoją prywatność w mediach społecznościowych</label><br>
+</div>
+
+<div class="card">
+  <h2>E-Obywatel i e-Zdrowie</h2>
+  <label><input type="checkbox"> Zalogować się do mObywatela i pokazać e-dowód</label><br>
+  <label><input type="checkbox"> Wypełnić wniosek przez ePUAP</label><br>
+  <label><input type="checkbox"> Złożyć PIT online przez e-Urząd Skarbowy</label><br>
+</div>
+
+<div class="card">
+  <h2>Zakupy i bankowość online</h2>
+  <label><input type="checkbox"> Zamówić coś przez internet i zapłacić BLIKiem</label><br>
+  <label><input type="checkbox"> Sprawdzić stan konta w aplikacji bankowej</label><br>
+</div>
+
+<div class="card">
+  <h2>Fotografia smartfonowa</h2>
+  <label><input type="checkbox"> Zrobić ładne zdjęcie telefonem</label><br>
+  <label><input type="checkbox"> Zrobić kolaż albo prostą grafikę z tekstem</label><br>
+</div>
+
+<div class="card">
+  <h2>Tworzenie i dzielenie się</h2>
+  <label><input type="checkbox"> Stworzyć blog lub nagrać podcast</label><br>
+  <label><input type="checkbox"> Opublikować coś w internecie</label><br>
+</div>
+
+<div class="card">
+  <h2>Aplikacje dla seniorów</h2>
+  <label><input type="checkbox"> Włączyć aplikację, która przypomina o lekach</label><br>
+  <label><input type="checkbox"> Znaleźć wydarzenia i zajęcia w mojej okolicy</label><br>
+</div>
+
+<button onclick="showPaths()">Pokaż moje ścieżki</button>
+
+<h2>Twoje ścieżki:</h2>
+<div id="pathsSection" class="grid"></div>
+
+<script>
+// Wklejony kod JS
+function showPaths() {
+  const checkboxes = document.querySelectorAll('input[type=checkbox]');
+  const selected = Array.from(checkboxes).filter(cb => cb.checked).map(cb => cb.nextSibling.textContent.trim());
+  const results = new Set();
+
+  const keywords = {
+"smartfon": "telefon.html",
+"telefon": "telefon.html",
+"Wi-Fi": "telefon.html",
+"komputer": "codzienne-uzycie.html",
+"myszka": "codzienne-uzycie.html",
+"przeglądarka": "codzienne-uzycie.html",
+"email": "codzienne-uzycie.html",
+"pliki": "codzienne-uzycie.html",
+"pendrive": "codzienne-uzycie.html",
+"fałszywe": "bezpieczenstwo.html",
+"phishing": "bezpieczenstwo.html",
+"cookies": "bezpieczenstwo.html",
+"fake news": "informacja.html",
+"dane osobowe": "bezpieczenstwo.html",
+"kamerka": "komunikacja.html",
+"Facebook": "komunikacja.html",
+"Instagram": "komunikacja.html",
+"relacja": "komunikacja.html",
+"komentarz": "komunikacja.html",
+"e-recepta": "e-zdrowie.html",
+"mObywatel": "e-zdrowie.html",
+"ePUAP": "e-zdrowie.html",
+"PIT": "e-zdrowie.html",
+"zakupy": "zakupy.html",
+"BLIK": "zakupy.html",
+"konto bankowe": "zakupy.html",
+"przelew": "zakupy.html",
+"zdjęcie": "fotografia.html",
+"filmik": "fotografia.html",
+"kolaż": "fotografia.html",
+"grafika": "tworzenie.html",
+"blog": "tworzenie.html",
+"nagrywanie": "tworzenie.html",
+"podcast": "tworzenie.html",
+"aplikacja": "aplikacje.html",
+"leki": "aplikacje.html",
+"kroki": "aplikacje.html",
+"radio": "aplikacje.html",
+"wydarzenia": "aplikacje.html"
+  };
+
+  selected.forEach(text => {
+    for (let keyword in keywords) {
+      if (text.toLowerCase().includes(keyword)) {
+        results.add(keywords[keyword]);
+      }
+    }
+  });
+
+  const output = document.getElementById('pathsSection');
+  output.innerHTML = '';
+
+  if (results.size === 0) {
+    output.innerHTML = '<p>Nie zaznaczono żadnych odpowiedzi, spróbuj ponownie.</p>';
+    return;
+  }
+
+  results.forEach(link => {
+    let name = link.replace('.html', '').replace('-', ' ');
+    output.innerHTML += `
+      <a href="${link}" class="card lightblue">
+        <h3>${name.charAt(0).toUpperCase() + name.slice(1)}</h3>
+        <p>Zobacz propozycje związane z tym tematem</p>
+      </a>
+    `;
+  });
+}
+</script>
+</body>
+</html>
